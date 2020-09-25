@@ -1,0 +1,15 @@
+{
+  "name": "john_mayer_lyrics_twitter_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luca Lumetti",
+  "license": "ISC",
+  "dependencies": {
+    "genius-lyrics-api": "^3.0.3",
+    "twit": "^2.2.11"
+  }
+}
