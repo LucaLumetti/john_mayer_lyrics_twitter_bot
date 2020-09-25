@@ -30,7 +30,6 @@ async function getSongs(){
   return songs.filter(s => s.primary_artist.id === 488)
 }
 
-
 function post_lyrics(){
   getSongs().then(async (songs) => {
     let random = Math.floor(songs.length*Math.random())
@@ -48,4 +47,5 @@ function post_lyrics(){
   })
 }
 
+post_lyrics()
 setInterval(post_lyrics, 1000*60*60)
