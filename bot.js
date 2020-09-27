@@ -34,9 +34,12 @@ async function post_lyrics(){
   // pick a random song
   let random = Math.floor(songs.length*Math.random())
   let song = songs[random]
-  let lyrics = (await genius.getLyricsBySong(song.url))
-    .split('\n')
-    .filter(l => l !== '')
+
+  let lyrics = null
+  while(!lyrics)
+    lyrics = (await genius.getLyricsBySong(song.url))
+
+  lyrics = lyrics.split('\n').filter(l => l !== '')
 
   /* select how many verses to post, uniformely from 1 to 4
    * and selected where to start at picking the verses
@@ -47,8 +50,7 @@ async function post_lyrics(){
   // Join them in a single tweet
   let tweet = lyrics.slice(random, random+n_verses).join('\n')
 
-  //T.post('statuses/update', { status: tweet }, function(err, data, response) {})
-  console.log(tweet)
+  T.post('statuses/update', { status: tweet }, function(err, data, response) {})
 }
 
 post_lyrics()
